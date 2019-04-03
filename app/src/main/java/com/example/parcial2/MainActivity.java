@@ -16,8 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private String opt[];
     private Intent intent;
-    private Button addStudentButton;
-    public static ArrayList<Estudiante> studentList;
+    public static ArrayList<Estudiante> studentList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +38,50 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart()
+    {
+        listView = (ListView) findViewById(R.id.studentList);
+        opt = Estudiantes.listSudentsNames();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, opt);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                intent = new Intent(MainActivity.this, studentActivity.class);
+                intent.putExtra("from", "list");
+                intent.putExtra("position", position);
+                startActivity(intent);
+            }
+        });
+        super.onStart();
+    }
+
+
+    @Override
+    protected void onResume()
+    {
+        listView = (ListView) findViewById(R.id.studentList);
+        opt = Estudiantes.listSudentsNames();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, opt);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                intent = new Intent(MainActivity.this, studentActivity.class);
+                intent.putExtra("from", "list");
+                intent.putExtra("position", position);
+                startActivity(intent);
+            }
+        });
+        super.onResume();
+    }
+
     public void addNewUser(View view){
         intent = new Intent(MainActivity.this, studentActivity.class);
+        startActivity(intent);
     }
 
 

@@ -12,10 +12,31 @@ public class studentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
+        this.loadActivity();
+    }
+
+
+    @Override
+    protected void onStart()
+    {
+        this.loadActivity();
+        super.onStart();
+    }
+
+
+    @Override
+    protected void onResume()
+    {
+        this.loadActivity();
+        super.onResume();
+    }
+
+    public void loadActivity(){
         Intent intent = getIntent();
         String from = intent.getStringExtra("from");
         int position = intent.getIntExtra("position", 0);
-        if(from =="list"){
+        System.out.println("the activity comes from: "+from);
+        if(from!=null){
             findViewById(R.id.btnAddUser).setVisibility(View.GONE);
             findViewById(R.id.txtId).setEnabled(false);
             findViewById(R.id.txtName).setEnabled(false);
@@ -34,11 +55,14 @@ public class studentActivity extends AppCompatActivity {
             TextView grade1 = (TextView)findViewById(R.id.txtGrade1);
             grade1.setText(student.getGrade1()+"");
             TextView grade2 = (TextView)findViewById(R.id.txtGrade2);
-            grade1.setText(student.getGrade2()+"");
+            grade2.setText(student.getGrade2()+"");
             TextView grade3 = (TextView)findViewById(R.id.txtGrade3);
-            grade1.setText(student.getGrade3()+"");
+            grade3.setText(student.getGrade3()+"");
             TextView finalGrade = (TextView)findViewById(R.id.txtGradeTotal);
-            grade1.setText(student.getFinalGrade()+"");
+            finalGrade.setText(student.getFinalGrade()+"");
+        }else{
+            findViewById(R.id.lblGradeTotal).setVisibility(View.GONE);
+            findViewById(R.id.txtGradeTotal).setVisibility(View.GONE);
         }
     }
 

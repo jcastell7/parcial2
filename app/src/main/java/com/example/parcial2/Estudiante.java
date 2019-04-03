@@ -59,7 +59,7 @@ public class Estudiante {
     }
 
     public double calculateFinalGrade(){
-        return (this.getGrade1()*0.333333333 + this.getGrade2()*0.333333333 + this.getGrade3()*0.333333333);
+        return ((this.getGrade1()+ this.getGrade2()+ this.getGrade3())/3);
     }
 
     public String getName() {
