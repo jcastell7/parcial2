@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Parcial2</string>
+    <string name="name">Nombre</string>
+    <string name="lastName">Apellido</string>
+    <string name="title_activity_student">studentActivity</string>
+    <string name="id">Cedula</string>
+    <string name="grade1">Primer Nota</string>
+    <string name="grade2">Segunda Nota</string>
+    <string name="grade3">Tercera Nota</string>
+    <string name="finalGrade">Nota Final</string>
+    <string name="addUser">Agregar Usuario</string>
+</resources>

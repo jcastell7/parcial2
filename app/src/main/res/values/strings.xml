@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Parcial2</string>
+    <string name="title_activity_student">studentActivity</string>
+    <string name="name">Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="id">Id</string>
+    <string name="grade1">First Grade</string>
+    <string name="grade2">Second Grade</string>
+    <string name="grade3">Third Grade</string>
+    <string name="finalGrade">Final Grade</string>
+    <string name="addUser">Add User</string>
+</resources>
